@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+        {% block title %}
+        {{ page_title|default:"Untitled Page"}}
+        {% endblock title %}
+        </title>
+        <link rel="stylesheet" href="{% static 'main.css' %}" type="text/css">
+
+        {% block styles %}{% endblock styles %}
+    </head>
+    <body>
+        <div id="wrapper">
+        <header id="header">
+            <div id="logo"><img src={% static 'disco_icon.jpg' %} alt="DISCO Logo"></div>
+            <div id="top_menu">
+            <a href="/">Home</a> | 
+            <a href={% url 'show-customers' %}>Process Requests</a>
+             | In-Process |<a href="/reports"> Reports </a> | 
+        
+            <a href="/contact">Contact</a> | 
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}
+                <a href="{% url 'logout' %}?next=/">Log out</a>.
+            {% else %}
+                Not logged in.
+                <a href="{% url 'login' %}?next=/">Log in</a>.
+            {% endif %}
+            </div>
+            <div id="main_image"></div>
+        </header>
+        {% if user.is_authenticated %}
+        {% endif %}
+        <section id="main">
+        {% block content %}
+        <p>Welcome to the DHA Process Website!</p>
+        {% endblock content %}
+        </section>
+        <footer id="footer">Copyright &copy;
+            <script type="text/JavaScript">
+            document.write(new Date().getFullYear());
+            </script> DISCO HI-Tec
+        </footer>
+        </div>
+    </body>
+</html>

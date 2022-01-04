@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+label {
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+}
+input, textarea {
+    background-color:rgba(243, 243, 230, 0.9);
+    border-radius: 6px;
+    margin-right: 100px;
+}
+#submit {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 20px;
+    font: bold;
+    color: white;
+    background-color: rgba(27, 75, 146, 0.61);
+}

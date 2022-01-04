@@ -1,0 +1,98 @@
+@charset "utf-8";
+#header {
+    border-style: none;
+    width: 800px;
+    height: auto;
+}
+#wrapper {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+    width: 800px;
+}
+body {
+    background-color: lightblue;
+    font-family: 'Times New Roman', Helvetica, sans-serif;
+    font-size: 0.9em;
+    text-align: justify;
+    color: black;
+}
+h1 {
+    color: black;
+}
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: aliceblue;
+    border-top: thin solid lightslategray;
+    clear: both;
+    color: black;
+}
+#main {
+    width: 560px;
+    float: left;
+    margin: 0 10px 50px 20px;
+    padding-right: 10px;
+}
+#logo {
+    padding: 10px;
+    float: left;
+}
+#top_menu {
+    float: right;
+    padding: 20px 50px 0px 0px;
+    font-size: 1.2em;
+    color: black;
+}
+ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+.errorlist li, .error {
+    border: 1px solid red;
+    color: red;
+    background: rgba(255, 0, 0, 0.15);
+    list-style-position: inside;
+    display: block;
+    font-size: 1.2em;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+    text-align: center;
+    border-radius: 3px;
+}
+input, button, textarea {
+    width: 100%;
+    padding: 5px!important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+}
+input {
+    height: 30px;
+}
+input[type="submit"], button {
+    height: 30px;
+    width: 90px;
+    float: right;
+}
+.success {
+    background-color: rgba(0, 128, 0, 0.15);
+    padding: 10px;
+    text-align: center;
+    color: green;
+    border: 1px solid green;
+    border-radius: 3px;
+}
+.required label:after {
+    content: "*";
+}
+#report_view {
+    overflow: scroll;
+    max-height: 200px;
+}

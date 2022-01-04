@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}DHA Process Home{% endblock title %}
+
+{% block content %}
+    <h1>Welcome to DHA's Process website!</h1>
+    {% comment "searchbar" %}
+    <p>Search for requests below:</p>
+
+    <form action="{% url 'show-requests' %}" method="get">{% csrf_token %}
+        <input id="search_box" type="text" name="q" placeholder="Search..." >
+        <button id="search_button" type="submit" >Search</button>
+    </form>
+    {% endcomment %}
+    {% comment "JavaScript" %}
+    <script type="text/javascript">
+    document.getElementById('search_box').value ='';
+    </script>
+    {% endcomment %}
+{% endblock content %}
+
