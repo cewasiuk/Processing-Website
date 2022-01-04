@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Request Details{% endblock title %}
+
+{% block content %}
+    <h1>{{ processing_request.company_name.get }} Processing Request</h1>
+    <table>
+        <tr>
+            <td><strong>Requested Process Date:</strong></td><td>{{ processing_request.process_date }}</td>
+        </tr>
+        <tr>
+            <td><strong>Quantity of Wafers:</strong></td><td>{{ processing_request.quantity }}</td>
+        </tr>
+        <tr>
+            <td><strong>Material:</strong></td><td>{{ processing_request.material_1.get }}</td>
+        </tr>
+        <tr>
+            <td><strong>Receiving Tracking Number (To DISCO):</strong></td><td>{{ processing_request.track_num_in }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Outgoing Tracking Number (From DISCO):</strong></td><td>{{ processing_request.track_num_out }}</td>
+        </tr>
+        
+        <tr>
+            <td><strong>Sales PIC:</strong></td><td>{{ processing_request.sales_PIC.get }}</td>
+        </tr>
+        <tr>
+            <td><strong>Engineer PIC:</strong></td><td>{{ processing_request.engineer_PIC.filter }}</td>
+        </tr>
+        <tr>
+            <td><strong>Description:</strong></td><td>{{ processing_request.description|safe }}</td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'show-company-requests' processing_request.company_name.get %}">Cancel</a></td>
+            <td><a href="{% url 'update-request' processing_request.company_name.get processing_request.id  %}">Update</a></td>
+            <td><a href="{% url 'delete-request' processing_request.company_name.get processing_request.id %}">Delete Request</a></td>
+            <td>&nbsp;</td>
+            
+        </tr>
+    </table>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Process Request{% endblock title %}
+
+{% block content %}
+    <h1>Delete Request</h1>
+    <form action="" method="post">{% csrf_token %}
+        <table>
+            <tr>
+                <td>Are you sure you want to delete "{{ processing_request }}"?</td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'show-company-requests' processing_request.company_name.get %}">Cancel</a></td>
+                <td><input type="submit" value="Delete"></td>
+            </tr>
+        </table>   
+    </form>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}All Requests{% endblock title %}
+
+{% block content %}
+    <h1>All Requests for {{ view.kwargs.company }}</h1>
+    {% for customer in all_customers %}
+        {% if customer.company_name.get == view.kwargs.company %}
+            <h3>Click <a href="">here</a>for a profile of the company.</h3>
+        {% endif %}
+    {% endfor %}
+    
+    <ul>
+        {% for process_request in object_list %}
+            <li><a href="{{ request.get_full_path }}{{ process_request.id }}">{{ process_request.material_1.get }} - {{ process_request.process_date }}</a></li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ request.get_full_path }}add/">Add Request</a></p>
+{% endblock content %}

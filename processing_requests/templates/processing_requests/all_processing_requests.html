@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Quick Edit Requests{% endblock title %}
+
+{% block content %}
+<h1>Quick Edit Requests</h1>
+{% if formset.errors %}
+    <ul>
+        {% for error in formset.errors %}
+            {{ error }}
+        {% endfor %}
+    </ul>
+{% endif %}
+<form action="" method="post" novalidate>
+    {{ formset.management_form }}
+    <table>
+    <tr>
+        <th>Company</th>
+        <th>Process Date</th>
+        <th>Quantity</th>
+        <th>Material</th>
+        <th>Tracking Number</th>
+    </tr>
+    {% for form in formset %}
+        <tr>
+            {{ form.id }}
+                <td>{{ form.company_name }}</td>
+                <td>{{ form.process_date }}</td>
+                <td>{{ form.quantity }}</td>
+                <td>{{ form.material_1 }}</td>
+                <td>{{ form.track_num_in }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% csrf_token %}
+    <input type="submit" style="width: 100px;" id="submit" value="Update">
+</form>
+
+<div style="padding-top: 20px">
+    {% if request_records.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ event_records.previous_page_number }}">previous</a>
+    {% endif %}
+    Page {{ request_records.number }} of {{ request_records.paginator.num_pages }}
+    {% if request_records.has_next %}
+        <a href="?page={{ request_records.next_page_number }}">next</a>
+        <a href="?page={{ event_records.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Customer Profile{% endblock title %}
+
+{% block content %}
+    <h1>Delete Customer</h1>
+    <form action="" method="post">{% csrf_token %}
+        <table>
+            <tr>
+                <td>Are you sure you want to delete "{{ customer }}"?</td>
+            </tr>
+            <tr>
+                <td><a href="/customers/">Cancel</a></td>
+                <td><input type="submit" value="Delete"></td>
+            </tr>
+        </table>   
+    </form>
+{% endblock content %}

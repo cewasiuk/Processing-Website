@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Process Requests by Month{% endblock title %}
+
+{% block content %}
+    <h1>Requests in {{ month|date:"F Y" }}</h1>
+    <ul>
+        {% for process_request in processing_request_list %}
+            <li>{{ process_request.process_date|date:"F j, Y" }}: {{ process_request.company_name.get }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        {% if previous_month %}
+            <a href="/{{ previous_month|date:"Y/m/" }}">Previous Month</a>
+            &nbsp;&nbsp;&nbsp;
+        {% endif %}
+        {% if next_month %}
+            <a href="/{{ next_month|date:"Y/m/" }}">Next Month</a>
+        {% endif %}
+    </p>
+{% endblock content %}

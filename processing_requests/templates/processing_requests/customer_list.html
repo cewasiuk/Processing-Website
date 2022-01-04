@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}All Customers{% endblock title %}
+
+{% block content %}
+    <h1>Search for Requests by Customer</h1>
+    <h3>Click on a customer to view requests:</h3>
+    <ul>
+        {% for customer in all_customers %}
+            <li><a id="customer_requests" href="{{ customer.company }}/processing_requests/">{{ customer.company }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    <p><a href="/customer/add/">Add Customer</a></p>
+{% endblock content %}

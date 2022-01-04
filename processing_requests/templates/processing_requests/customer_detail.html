@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer Profile{% endblock title %}
+
+{% block content %}
+    <h1>{{ customer.company }} Details</h1>
+    <table>
+        <tr>
+            <td><strong>Company Name:</strong></td><td>{{ customer.company }}</td>
+        </tr>
+        <tr>
+            <td><strong>Customer Address:</strong></td><td>{{ customer.address }}</td>
+        </tr>
+
+        <tr>
+            <td><a href="/customers/">Cancel</a></td>
+            <td><a href="/customer/update/{{ customer.id }}">Update</a></td>
+            <td><a href="/customer/delete/{{ customer.id }}">Delete Customer</a></td>
+            <td>&nbsp;</td>
+            
+        </tr>
+    </table>
+
+{% endblock content %}
