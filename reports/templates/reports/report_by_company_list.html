@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}All Reports{% endblock title %}
+
+{% block content %}
+    <h1>All Reports for {{ view.kwargs.company }}</h1>
+    {% for customer in all_customers %}
+        {% if customer.company_name.get == view.kwargs.company %}
+            <h3>Click <a href="">here</a>for a profile of the company.</h3>
+        {% endif %}
+    {% endfor %}
+    <h3>Incomplete</h3>
+    <ul>
+        {% for process_request in object_list %}
+            {% if process_request.report == Null%}
+                <li>Tracking ID: <a href="{{ report.get_full_path }}{{ process_request.id }}">{{ process_request.track_num_in }} - {{ process_request.process_date }}</a></li> 
+            {% endif %}
+
+
+
+        {% endfor %}
+    </ul>
+    <h3>Complete</h3>
+    <ul>
+        {% for process_request in object_list %}
+            {% if process_request.report != Null%}
+                <li>Tracking ID: <a href="{{ report.get_full_path }}{{ process_request.id }}/complete">{{ process_request.track_num_in }} - {{ process_request.process_date }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

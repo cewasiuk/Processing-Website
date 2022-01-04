@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}All Customers{% endblock title %}
+
+{% block content %}
+    <h1>Search for Reports by Customer</h1>
+    <h3>Click on a customer to view incomplete and completed reports:</h3>
+    <ul>
+        {% for customer in all_customers %}
+            <li><a id="customer_requests" href="{{ customer.company }}/reports/">{{ customer.company }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

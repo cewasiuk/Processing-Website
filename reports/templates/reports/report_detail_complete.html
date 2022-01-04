@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Report Details{% endblock title %}
+
+{% block content %}
+    <h1>{{ reports.company_name.get }} Processing Report Summary</h1>
+    <table>
+        <tr>
+            <td><strong>Requested Process Date:</strong></td><td>{{ reports.process_date }}</td>
+        </tr>
+        <tr>
+            <td><strong>Quantity of Wafers:</strong></td><td>{{ reports.quantity }}</td>
+        </tr>
+        <tr>
+            <td><strong>Material:</strong></td><td>{{ reports.material_1.get }}</td>
+        </tr>
+        <tr>
+            <td><strong>Receiving Tracking Number (To DISCO):</strong></td><td>{{ reports.track_num_in }}</td>
+        </tr>
+        <tr>
+            <td><strong>Outgoing Tracking Number (From DISCO):</strong></td><td>{{ reports.track_num_out }}</td>
+        </tr>
+
+        <tr>
+            <td ><strong>Report:</strong></td><td id="report_view" >{{ reports.report|safe }}</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        <tr>
+            <th><a href="{% url 'show-company-reports' reports.company_name.get%}">Back</a></th> 
+            <th><a href="{% url 'update-report' reports.company_name.get reports.id  %}">Update</a></th>
+            <th><a href="{% url 'report-pdf' reports.id %}" target = '_blank'>View as PDF</a></th>
+        </tr>
+    </table>
+{% endblock content %}

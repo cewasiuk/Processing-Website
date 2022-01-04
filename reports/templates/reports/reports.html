@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Reports{% endblock title %}
+{% block styles %}{{ form.media }}{% endblock styles %}
+
+{% block content %}
+<h1>All Reports in Database</h1>
+
+{% if submitted %}
+    <p class="success">
+    Your report was submitted successfully. Thank you.
+    </p>
+    
+{% else %}
+<ul>
+    {% for request in all_reports.all %}
+    <a href="/report/{{ request.id }}"">{{ request.process_date}} - {{ request.company_name.get}}</a></br>
+    {% endfor %}
+</ul>
+
+    <p><a href="/reports/lot_id">Add Report</a></p>
+{% endif %}
+{% endblock content %}
